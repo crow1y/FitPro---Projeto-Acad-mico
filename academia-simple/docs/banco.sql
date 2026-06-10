@@ -40,8 +40,4 @@ CREATE TABLE checkin (
     FOREIGN KEY (aluno_id) REFERENCES aluno(id)
 );
 
--- Dados iniciais de exemplo
-INSERT INTO plano (nome, valor) VALUES
-    ('Mensal',    79.90),
-    ('Trimestral', 199.90),
-    ('Anual',     699.90);
+

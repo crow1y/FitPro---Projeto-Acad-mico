@@ -27,7 +27,7 @@ public class TokenService {
                     .withSubject(usuario.getUsername())    // login do usuário dentro do token
                     .withExpiresAt(                        // token expira em 2 horas
                             LocalDateTime.now()
-                                    .plusHours(2)
+                                    .plusHours(8)
                                     .toInstant(ZoneOffset.of("-03:00"))
                     )
                     .sign(algoritmo);                      // assina com a chave secreta

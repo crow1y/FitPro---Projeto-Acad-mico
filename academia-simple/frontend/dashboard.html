@@ -189,8 +189,14 @@ async function api(url, metodo = 'GET', corpo = null) {
 
     const resposta = await fetch(API + url, opcoes);
 
-    // Se retornar 401 ou 403, o token expirou — volta ao login
-    if (resposta.status === 401 || resposta.status === 403) sair();
+    // 401 = token expirado → volta ao login
+    if (resposta.status === 401) sair();
+
+    // 403 = sem permissão → avisa o usuário mas NÃO redireciona
+    if (resposta.status === 403) {
+        alert('Sem permissão para realizar esta ação.');
+        return null;
+    }
 
     if (resposta.ok && metodo !== 'DELETE') return resposta.json();
     return null;
